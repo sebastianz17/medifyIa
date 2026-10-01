@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEDIFY AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <!-- ENCABEZADO -->
+
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">M</div>
+
+                <div>
+                    <h1>MEDIFY <span>AI</span></h1>
+                    <p>Procesamiento inteligente de documentos</p>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Sistema activo
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO -->
+
+        <section class="content">
+
+            <div class="intro">
+
+                <p class="tag">INTELIGENCIA DOCUMENTAL</p>
+
+                <h2>
+                    Organiza tus documentos
+                    <span>automáticamente.</span>
+                </h2>
+
+                <p class="description">
+                    MEDIFY AI analiza, identifica y clasifica documentos
+                    de forma automática utilizando inteligencia artificial.
+                </p>
+
+            </div>
+
+
+            <!-- ZONA DE CARGA -->
+
+            <div class="upload-card">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+                <h3>Selecciona tus documentos</h3>
+
+                <p>
+                    Puedes cargar archivos PDF, JPG, JPEG o PNG.
+                </p>
+
+                <button id="selectButton" class="primary-button">
+                    Seleccionar documentos
+                </button>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png,image/*"
+                    hidden
+                >
+
+                <div id="fileList" class="file-list"></div>
+
+            </div>
+
+
+            <!-- RESUMEN -->
+
+            <div class="summary">
+
+                <div class="summary-item">
+
+                    <div class="summary-number" id="fileCount">
+                        0
+                    </div>
+
+                    <div>
+                        <strong>Documentos</strong>
+                        <p>Seleccionados</p>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <div class="summary-icon">
+                        AI
+                    </div>
+
+                    <div>
+                        <strong>Clasificación</strong>
+                        <p>Automática</p>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <div class="summary-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Organización</strong>
+                        <p>Automática</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN PROCESAR -->
+
+            <button
+                id="processButton"
+                class="process-button"
+            >
+                Procesar documentos
+            </button>
+
+
+            <!-- ESTADO -->
+
+            <div id="message" class="message">
+                Selecciona documentos para comenzar.
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            MEDIFY AI
+            <span>•</span>
+            Intelligent Document Processing
+
+        </footer>
+
+    </main>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
+
