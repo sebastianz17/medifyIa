@@ -14,8 +14,19 @@ app = FastAPI(
 
 BASE_DIR = Path(__file__).resolve().parent
 
-ENTRADA_DIR = BASE_DIR / "entrada"
+import os
+
+if os.getenv("VERCEL"):
+    ENTRADA_DIR = Path("/tmp/medify_entrada")
+else:
+    ENTRADA_DIR = BASE_DIR / "entrada"
+
 PROCESADOS_DIR = BASE_DIR / "PROCESADOS"
+
+ENTRADA_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
 
 
 app.mount(
