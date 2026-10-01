@@ -17,9 +17,6 @@ BASE_DIR = Path(__file__).resolve().parent
 ENTRADA_DIR = BASE_DIR / "entrada"
 PROCESADOS_DIR = BASE_DIR / "PROCESADOS"
 
-ENTRADA_DIR.mkdir(exist_ok=True)
-PROCESADOS_DIR.mkdir(exist_ok=True)
-
 
 app.mount(
     "/static",
