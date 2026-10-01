@@ -1,4 +1,8 @@
-google-genai
+﻿google-genai
 python-dotenv
 pydantic
 openpyxl
+fastapi
+uvicorn
+python-multipart
+Pillow
