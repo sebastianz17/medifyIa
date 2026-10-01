@@ -136,3 +136,10 @@ def procesar_documentos():
         "cantidad": len(resultados),
         "resultados": resultados
     }
+
+@app.get("/health")
+def health():
+    return {
+        "estado": "OK",
+        "sistema": "MEDIFY AI"
+    }
