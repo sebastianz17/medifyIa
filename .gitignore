@@ -5,3 +5,4 @@ __pycache__/
 PROCESADOS/*
 logs/*.xlsx
 entrada/*
+.vercel
