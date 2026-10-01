@@ -4,8 +4,6 @@ from fastapi.responses import HTMLResponse
 from pathlib import Path
 import shutil
 
-from processor import procesar_archivo
-
 
 app = FastAPI(
     title="MEDIFY AI",
@@ -36,6 +34,15 @@ def inicio():
     archivo_html = BASE_DIR / "templates" / "index.html"
 
     return archivo_html.read_text(encoding="utf-8")
+
+
+@app.get("/health")
+def health():
+
+    return {
+        "estado": "OK",
+        "sistema": "MEDIFY AI"
+    }
 
 
 @app.post("/upload")
@@ -80,6 +87,8 @@ async def subir_archivos(
 @app.post("/procesar")
 def procesar_documentos():
 
+    from processor import procesar_archivo
+
     resultados = []
 
     archivos = []
@@ -115,17 +124,18 @@ def procesar_documentos():
 
         try:
 
-            procesar_archivo(str(archivo))
+            resultado = procesar_archivo(
+                str(archivo)
+            )
 
-            resultados.append({
-                "archivo": nombre_original,
-                "estado": "OK"
-            })
+            resultados.append(
+                resultado
+            )
 
         except Exception as e:
 
             resultados.append({
-                "archivo": nombre_original,
+                "archivo_original": nombre_original,
                 "estado": "ERROR",
                 "detalle": str(e)
             })
@@ -135,11 +145,4 @@ def procesar_documentos():
         "estado": "OK",
         "cantidad": len(resultados),
         "resultados": resultados
-    }
-
-@app.get("/health")
-def health():
-    return {
-        "estado": "OK",
-        "sistema": "MEDIFY AI"
     }
